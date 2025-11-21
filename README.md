@@ -1,5 +1,7 @@
 # multiscore_review_cvpr26
 
+Stage 2: Computing  Biderectional CoT Embedding Score
+
 python stage_2/bidirectional_cot_embedding_score.py \
   --batch_size 2 \
   --queries "a person is swimming in some white water rapids." "young men discuss and demonstrate a video game." \
