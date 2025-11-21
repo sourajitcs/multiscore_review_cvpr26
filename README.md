@@ -78,6 +78,14 @@ python stage_2/qa_relevance_score.py \
 ```
 
 
+### 🧮 Conceptual Overview
+
+| Stage | Purpose | Core Mechanism | Output |
+|-------|----------|----------------|---------|
+| **Stage 1 – PyramidRank** | Efficient coarse filtering | Hierarchical MRL embedding + binary search pruning | Top-K candidate set |
+| **Stage 2a – Bidirectional CoT Score** | Cross-directional alignment | `<emb>` hidden state similarity | CoT similarity vector |
+| **Stage 2b – QA Relevance Score** | Semantic verification | MLLM-based Yes/No QA accuracy | QA relevance vector |
+
 
 
 
