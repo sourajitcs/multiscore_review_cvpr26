@@ -7,16 +7,64 @@ The system combines efficient **Stage-1 candidate filtering** with fine-grained 
 
 ## 📂 Directory Overview
 
+multiscore_review_cvpr26/
+│
+├── stage_1/
+│ └── pyramid_rank.py
+│
+├── stage_2/
+│ ├── bidirectional_cot_embedding_score.py
+│ └── qa_relevance_score.py
+│
+└── README.md ← (this file)
 
 
+---
+
+## ⚙️ Stage-1: Efficient Filtering via PyramidRank
+
+**PyramidRank** performs hierarchical multi-resolution filtering based on **Matryoshka Representation Learning (MRL)**.  
+It progressively increases embedding dimensionality (32→1024 D), computing an **upper-bound similarity** at each level and pruning away candidates whose bound falls below a binary-searched threshold τ until only `K` remain.
+
+```bash
+python stage_1/pyramid_rank.py \
+  --batch_size $Q \
+  --queries  $QUERIES \
+  --candidates $CANDS \
+  --K 50 \
+  --epsilon 0.02 \
+  --levels 32,64,128,256,512,1024 \
+  --encoder Qwen/Qwen3-0.6B-Embedding \
+  --embed_batch_size 128 \
+  --max_length 256 \
+  --dtype bf16 \
+  --save_json results.jsonl \
+  --save_stats stats.jsonl
+```
 
 
+```bash
+python stage_2/bidirectional_cot_embedding_score.py \
+  --batch_size 2 \
+  --queries "a person is swimming in some white water rapids." \
+            "young men discuss and demonstrate a video game." \
+  --videos /path/to/video1.mp4 /path/to/video2.mp4 \
+  --example_video /path/to/any_small_video.mp4
+
+```
 
 
+```bash
+python stage_2/qa_relevance_score.py \
+  --batch_size 2 \
+  --queries "a person is swimming in some white water rapids." \
+            "two people playing tennis indoors." \
+  --videos /path/to/vid1.mp4 /path/to/vid2.mp4 \
+  --num_qas 5 \
+  --num_frames 12 \
+  --save_scores qa_scores.npy
 
-
-
-
+```
 
 
 
