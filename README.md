@@ -1,3 +1,26 @@
+# 🧩 Multi-Score Retrieval Framework (CVPR 2026 Review Submission)
+
+This repository implements the **two-stage zero-shot multimodal retrieval pipeline** used in our CVPR 2026 submission.  
+The system combines efficient **Stage-1 candidate filtering** with fine-grained **Stage-2 multi-score re-ranking**, integrating both **Bidirectional Chain-of-Thought (CoT) Embedding** and **Question-Answer (QA) Relevance** signals.
+
+---
+
+## 📂 Directory Overview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # multiscore_review_cvpr26
 
 
