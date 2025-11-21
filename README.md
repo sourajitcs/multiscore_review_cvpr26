@@ -42,6 +42,11 @@ python stage_1/pyramid_rank.py \
   --save_stats stats.jsonl
 ```
 
+## 🧠 Stage-2: Bidirectional CoT Embedding Score
+
+**This step extracts contextual embeddings from both directions — candidate → query and query → candidate — using a chain-of-thought (CoT) prompting scheme that introduces a special <emb> token.
+The embeddings preceding this token are used as alignment features, and their cosine similarity forms the Dual CoT Embedding Score.**
+
 
 ```bash
 python stage_2/bidirectional_cot_embedding_score.py \
