@@ -7,6 +7,7 @@ The system combines efficient **Stage-1 candidate filtering** with fine-grained 
 
 ## 📂 Directory Overview
 
+```
 multiscore_review_cvpr26/
 │
 ├── stage_1/
@@ -17,7 +18,7 @@ multiscore_review_cvpr26/
 │ └── qa_relevance_score.py
 │
 └── README.md ← (this file)
-
+```
 
 ---
 
