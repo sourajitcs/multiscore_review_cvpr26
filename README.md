@@ -58,6 +58,11 @@ python stage_2/bidirectional_cot_embedding_score.py \
 
 ```
 
+## 🤖 Stage-2: QA Relevance Score
+
+**This component evaluates semantic correctness by generating a bank of discriminative Yes/No QA pairs from each query and assessing each candidate’s ability to answer them correctly.
+The mean accuracy across generated pairs forms the QA Relevance Score (S₍QA₎ ∈ [0, 1]).**
+
 
 ```bash
 python stage_2/qa_relevance_score.py \
