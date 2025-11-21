@@ -3,7 +3,7 @@
 
 Stage 1: Computing Ranking with PyramidRank
 
-python pyramidrank_qwen3_stage1.py \
+python stage_1/pyramid_rank.py \
   --batch_size $Q \
   --queries  $QUERIES \
   --candidates $CANDS \
