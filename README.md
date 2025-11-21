@@ -3,6 +3,18 @@
 
 Stage 1: Computing Ranking with PyramidRank
 
+python pyramid_rank.py \
+  --batch_size 128 \
+  --queries $(python - <<'PY'
+for i in range(128): print(f'"query text {i}"', end=' ')
+PY
+) \
+  --candidates $(python - <<'PY'
+for i in range(128): print(f'"candidate text {i}"', end=' ')
+PY
+) \
+  --levels 32,64,128,256,512,1024 \
+  --save_bounds per_level_bounds.npy
 
 
 Stage 2: Computing Re-ranking with  Biderectional CoT Embedding Score
